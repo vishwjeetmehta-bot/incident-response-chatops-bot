@@ -1,0 +1,10 @@
+runbooks:
+  - id: restart-deployment
+    command: "/sre restart <deployment>"
+    action: "kubectl rollout restart deployment"
+    allowed_roles: ["sre-lead", "devops-engineer"]
+
+  - id: remediate-oom
+    command: "/sre remediate-oom <service>"
+    action: "kubectl patch deployment -p '{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\":\"app\",\"resources\":{\"limits\":{\"memory\":\"512Mi\"}}}]}}}}'"
+    allowed_roles: ["sre-lead"]
