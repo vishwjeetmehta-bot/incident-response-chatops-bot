@@ -7,3 +7,4 @@ def diagnose_failing_pods(namespace: str = "production") -> str:
         f"Memory Limit: 256Mi | Peak Usage: 260Mi\n"
         f"Suggested Action: Scale memory limit to 512Mi or trigger runbook '/sre remediate-oom payment-service'"
     )
+

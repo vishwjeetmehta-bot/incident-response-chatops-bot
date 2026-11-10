@@ -8,3 +8,4 @@ runbooks:
     command: "/sre remediate-oom <service>"
     action: "kubectl patch deployment -p '{\"spec\":{\"template\":{\"spec\":{\"containers\":[{\"name\":\"app\",\"resources\":{\"limits\":{\"memory\":\"512Mi\"}}}]}}}}'"
     allowed_roles: ["sre-lead"]
+
